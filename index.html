@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="縦型ショート動画と生成AIの動画の制作実績（美容家電・化粧品ブランドの TikTok 動画と、AIアイドル「クロネコノイズ」の自主制作）。">
+<meta property="og:title" content="小林空 ポートフォリオ">
+<meta property="og:description" content="縦型ショート動画と生成AIの動画の制作実績（美容家電・化粧品ブランドの TikTok 動画と、AIアイドル「クロネコノイズ」の自主制作）。">
+<meta property="og:type" content="website">
+<title>小林空 ポートフォリオ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=IBM+Plex+Mono:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: a dark screening room. A live feed of vertical screens up top, then each work as a device beside its numbers; the process drawn as an edit timeline with two tracks. Single dark look by choice. */
+:root {
+  --bg: #0b0c11;
+  --panel: #13141b;
+  --ink: #f2f0ea;
+  --muted: #9997a3;
+  --line: #262733;
+  --cyan: #35e4de;
+  --pink: #ff3d6e;
+  --font-display: "Dela Gothic One", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --font-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { overflow-x: hidden; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.inner { max-width: 1120px; margin: 0 auto; }
+.mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.split { color: var(--ink); text-shadow: -0.035em 0 0 var(--cyan), 0.035em 0 0 var(--pink); }
+
+/* ---------- Hero ---------- */
+.topbar { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 22px; border-bottom: 1px solid var(--line); }
+.hero { padding-block: 64px 40px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 32px 56px; align-items: end; }
+.hero h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(72px, 13vw, 168px); line-height: .95; letter-spacing: .01em; }
+.hero .roman { margin-top: 18px; }
+.statement { font-size: clamp(20px, 2.4vw, 26px); font-weight: 700; line-height: 1.55; }
+.statement + p { margin-top: 14px; color: var(--muted); font-size: 14.5px; max-width: 34em; }
+
+/* Feed marquee */
+.feed { position: relative; overflow: hidden; padding-block: 8px 48px; }
+.feed::before, .feed::after { content: ""; position: absolute; top: 0; bottom: 0; width: 8vw; z-index: 2; pointer-events: none; }
+.feed::before { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+.feed::after { right: 0; background: linear-gradient(-90deg, var(--bg), transparent); }
+.track { display: flex; gap: 18px; width: max-content; animation: drift 60s linear infinite; }
+.feed:hover .track { animation-play-state: paused; }
+@keyframes drift { to { transform: translateX(-50%); } }
+.tile { position: relative; width: clamp(150px, 17vw, 210px); aspect-ratio: 9 / 16; border-radius: 16px; overflow: hidden; background: #000; flex: none; border: 1px solid var(--line); }
+.tile video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tile .views { position: absolute; left: 10px; bottom: 9px; display: flex; align-items: center; gap: 5px; font-weight: 700; font-size: 15px; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.7); }
+.tile .views svg { width: 13px; height: 13px; }
+.tile .who { position: absolute; left: 10px; top: 9px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; color: #fff; background: rgba(0,0,0,.45); padding: 1px 7px; border-radius: 99px; }
+
+/* Numbers band */
+.band { border-block: 1px solid var(--line); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.stat { padding: 28px 22px 26px; border-left: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; }
+.stat:first-child { border-left: 0; padding-left: 0; }
+.stat b { font-family: var(--font-display); font-weight: 400; font-size: clamp(34px, 4.2vw, 50px); line-height: 1; font-variant-numeric: tabular-nums; }
+.stat b small { font-size: .45em; margin-left: 3px; color: var(--muted); }
+.stat b.money { color: var(--cyan); }
+.stat p { font-size: 13px; line-height: 1.55; color: var(--muted); }
+.stat p strong { display: block; color: var(--ink); font-weight: 500; }
+
+/* ---------- Sections ---------- */
+section { padding-block: 96px 0; }
+.sec-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px 40px; align-items: end; margin-bottom: 56px; }
+.sec-head h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(34px, 4.6vw, 52px); line-height: 1.15; margin-top: 10px; }
+.sec-head > p { color: var(--muted); font-size: 14px; }
+.sec-head > p b { color: var(--ink); font-weight: 700; }
+
+/* Cases */
+.cases { display: flex; flex-direction: column; gap: 88px; }
+.case { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 32px 72px; align-items: center; }
+.case.flip { grid-template-columns: minmax(0, 1fr) 300px; }
+.case.flip .device { order: 2; }
+.device { position: relative; padding: 9px; border-radius: 40px; background: #050507; border: 1px solid #2c2d3a; box-shadow: 0 40px 80px -30px rgba(0,0,0,.9), 0 0 0 6px #0f1016; max-width: 100%; }
+.device::before { content: ""; position: absolute; top: 19px; left: 50%; transform: translateX(-50%); width: 30%; height: 20px; border-radius: 99px; background: #000; z-index: 2; }
+.screen { aspect-ratio: 9 / 16; border-radius: 31px; overflow: hidden; background: #000; }
+.screen video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.meta { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.kicker { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.chip { font-size: 12px; font-weight: 500; padding: 3px 11px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); }
+.chip.brand { background: var(--ink); color: var(--bg); border-color: var(--ink); font-weight: 700; }
+.chip.ai { border-color: var(--pink); color: var(--pink); }
+.big { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.big b { font-family: var(--font-display); font-weight: 400; font-size: clamp(64px, 8vw, 104px); line-height: .95; font-variant-numeric: tabular-nums; }
+.big span { font-size: 15px; color: var(--muted); }
+.meta h3 { font-size: 21px; font-weight: 700; line-height: 1.5; }
+.sales { border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 18px; align-items: baseline; background: var(--panel); }
+.sales .label { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; color: var(--muted); }
+.sales .total { font-family: var(--font-display); font-weight: 400; font-size: 30px; line-height: 1.1; color: var(--cyan); font-variant-numeric: tabular-nums; }
+.sales .break { grid-column: 2; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.desc { font-size: 15px; max-width: 36em; }
+dl.facts { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 18px; font-size: 13.5px; }
+dl.facts dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; color: var(--muted); padding-top: 3px; }
+dl.facts dd { margin: 0; }
+.spec { font-family: var(--font-mono); font-size: 12px; color: var(--muted); letter-spacing: .04em; padding-top: 14px; border-top: 1px dashed var(--line); }
+
+/* MV */
+.cinema { display: flex; flex-direction: column; gap: 28px; }
+.cinema .frame { position: relative; aspect-ratio: 16 / 9; max-width: 100%; border-radius: 18px; overflow: hidden; background: #000; border: 1px solid var(--line); }
+.cinema .frame video { width: 100%; height: 100%; display: block; object-fit: cover; }
+.cinema .row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 24px 72px; }
+
+/* Process timeline */
+.timeline { border: 1px solid var(--line); border-radius: 18px; background: var(--panel); overflow: hidden; }
+.ruler, .lane { display: grid; grid-template-columns: 112px repeat(7, minmax(0, 1fr)); }
+.ruler { border-bottom: 1px solid var(--line); }
+.ruler span { font-family: var(--font-mono); font-size: 11px; color: var(--muted); padding: 8px 10px; border-left: 1px solid var(--line); }
+.ruler span:first-child { border-left: 0; }
+.lane { border-bottom: 1px solid var(--line); min-height: 118px; }
+.lane:last-of-type { border-bottom: 0; }
+.lane .name { padding: 14px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: var(--muted); border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+.lane .name b { font-family: var(--font-body); font-size: 14px; letter-spacing: 0; color: var(--ink); }
+.clip { margin: 10px 4px; border-radius: 10px; padding: 12px 12px; display: flex; flex-direction: column; gap: 6px; }
+.lane.make .clip { background: color-mix(in srgb, var(--pink) 16%, transparent); border: 1px solid color-mix(in srgb, var(--pink) 55%, transparent); }
+.lane.check .clip { background: color-mix(in srgb, var(--cyan) 12%, transparent); border: 1px solid color-mix(in srgb, var(--cyan) 50%, transparent); }
+.clip h3 { font-size: 14px; font-weight: 700; line-height: 1.4; }
+.clip p { font-size: 12px; line-height: 1.6; color: var(--muted); }
+.c1 { grid-column: 2; } .c2 { grid-column: 3; } .c3 { grid-column: 4; } .c4 { grid-column: 5; } .c5 { grid-column: 6; } .c6 { grid-column: 7; } .c7 { grid-column: 8; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 26px 28px; }
+.panel h3 { font-size: 16px; font-weight: 700; margin-bottom: 14px; }
+.panel ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 0; }
+.panel li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 14.5px; }
+.panel li:first-child { border-top: 0; padding-top: 0; }
+.tools { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px 18px; font-size: 14px; }
+.tools dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; color: var(--muted); padding-top: 4px; }
+.tools dd { margin: 0; }
+.other { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+
+footer { margin-top: 96px; padding-block: 28px 48px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); line-height: 1.8; }
+
+video:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .track { animation: none; }
+  .feed { overflow-x: auto; }
+}
+@media (max-width: 960px) {
+  .hero { grid-template-columns: minmax(0, 1fr); padding-block: 44px 28px; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat:nth-child(3) { border-left: 0; padding-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .sec-head, .cinema .row, .skills { grid-template-columns: minmax(0, 1fr); }
+  .case, .case.flip { grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 32px 40px; }
+  .case.flip .device { order: 0; }
+  .ruler { display: none; }
+  .lane { display: flex; flex-direction: column; min-height: 0; }
+  .lane .name { border-right: 0; border-bottom: 1px solid var(--line); flex-direction: row; align-items: baseline; gap: 10px; }
+  .clip { margin: 8px 12px; }
+  .lane .clip:last-child { margin-bottom: 14px; }
+}
+@media (max-width: 640px) {
+  section { padding-block: 72px 0; }
+  .case, .case.flip { grid-template-columns: minmax(0, 1fr); }
+  .device { width: min(280px, 78vw); margin: 0 auto; }
+  .stat { padding: 22px 14px 20px; }
+  .stat:nth-child(odd) { padding-left: 0; }
+  .sec-head { margin-bottom: 40px; }
+  .cases { gap: 72px; }
+}
+</style>
+<style>body { margin: 0; } img { max-width: 100%; }</style>
+</head>
+<body>
+<header class="gutter">
+  <div class="inner">
+    <div class="topbar"><span class="mono">Sora Kobayashi — Short Video / AI Video</span><span class="mono">Portfolio 2026.11</span></div>
+    <div class="hero">
+      <div>
+        <p class="mono">Short Video Creator</p>
+        <h1 class="split" style="margin-top:14px">小林 空</h1>
+        <p class="mono roman">Sora Kobayashi</p>
+      </div>
+      <div>
+        <p class="statement">縦型ショート動画と、<br>生成AIの動画をつくっています。</p>
+        <p>ブランドの TikTok 動画の構成・制作・効果分析と、撮影なしで作る AI 動画の制作。本業は SNS マーケティング会社で、TikTok Shop の動画を担当しています。</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="feed" aria-label="制作した動画のプレビュー">
+  <div class="track" id="track">
+    <div class="tile"><video src="p/client-hairiron.mp4" poster="p/client-hairiron.jpg" muted autoplay loop playsinline></video><span class="who">美容家電</span><span class="views"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.5v9l7.5-4.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>180万</span></div>
+    <div class="tile"><video src="p/niko-liptattoo.mp4" poster="p/niko-liptattoo.jpg" muted autoplay loop playsinline></video><span class="who">AI</span><span class="views"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.5v9l7.5-4.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>80.5万</span></div>
+    <div class="tile"><video src="p/client-lip.mp4" poster="p/client-lip.jpg" muted autoplay loop playsinline></video><span class="who">化粧品</span><span class="views"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.5v9l7.5-4.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>81.5万</span></div>
+    <div class="tile"><video src="p/client-bodycare.mp4" poster="p/client-bodycare.jpg" muted autoplay loop playsinline></video><span class="who">美容家電</span><span class="views"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.5v9l7.5-4.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>110万</span></div>
+    <div class="tile"><video src="p/yoru-liptattoo.mp4" poster="p/yoru-liptattoo.jpg" muted autoplay loop playsinline></video><span class="who">AI</span><span class="views">横展開</span></div>
+    <div class="tile"><video src="p/mv-oide.mp4" poster="p/mv-oide.jpg" muted autoplay loop playsinline></video><span class="who">AI · MV</span><span class="views">MV 2:40</span></div>
+  </div>
+</div>
+
+<div class="band gutter">
+  <div class="inner stats">
+    <div class="stat"><b>180<small>万</small></b><p><strong>再生</strong>美容家電ブランドの公式 TikTok 動画</p></div>
+    <div class="stat"><b class="money">¥60.2<small>万</small></b><p><strong>売上</strong>同じ1本の売上（広告経由を含む）</p></div>
+    <div class="stat"><b>81.5<small>万</small></b><p><strong>再生</strong>化粧品ブランドの TikTok 動画</p></div>
+    <div class="stat"><b>80.5<small>万</small></b><p><strong>再生</strong>生成AIだけで作った商品動画</p></div>
+  </div>
+</div>
+
+<main class="gutter">
+  <div class="inner">
+
+    <section aria-labelledby="h-client">
+      <div class="sec-head">
+        <div><p class="mono">Client Work</p><h2 id="h-client">クライアント案件</h2></div>
+        <p>本業で担当したブランドの TikTok 動画です。美容家電ブランドは 2026年3〜9月に公式 TikTok の動画を担当し、3〜4月に配信した動画55本の売上は <b>¥925,340</b>（広告経由を含む）でした。</p>
+      </div>
+      <div class="cases">
+
+        <article class="case">
+          <div class="device"><div class="screen"><video controls playsinline preload="none" poster="v/client-hairiron.jpg" src="v/client-hairiron.mp4" aria-label="ヘアアイロンの動画"></video></div></div>
+          <div class="meta">
+            <div class="kicker"><span class="chip brand">美容家電ブランド</span><span class="chip">ライブ誘導</span><span class="chip">TikTok Shop</span></div>
+            <div class="big"><b>180万</b><span>再生</span></div>
+            <h3>ヘアアイロン「2役こなしてこの安さ！？」</h3>
+            <div class="sales">
+              <span class="label">SALES</span><span class="total">¥602,100</span>
+              <span class="break">オーガニック ¥115,500 ＋ 広告経由 ¥486,600</span>
+            </div>
+            <p class="desc">ライブ配信へ誘導する動画です。「夜は髪の補修、朝はストレートアイロン」の2役と、ライブ限定の価格を1本に重ねました。3〜4月の公式アカウントの動画で売上1位です。</p>
+            <dl class="facts"><dt>ROLE</dt><dd>構成・制作・効果分析</dd></dl>
+            <p class="spec">9:16 · 30秒 · 2026.03.18 投稿 · 売上は 2026年5月時点の集計</p>
+          </div>
+        </article>
+
+        <article class="case flip">
+          <div class="device"><div class="screen"><video controls playsinline preload="none" poster="v/client-bodycare.jpg" src="v/client-bodycare.mp4" aria-label="全身ケアの動画"></video></div></div>
+          <div class="meta">
+            <div class="kicker"><span class="chip brand">美容家電ブランド</span><span class="chip">商品訴求</span></div>
+            <div class="big"><b>110万</b><span>再生</span></div>
+            <h3>全身ケア「たった3分のながらルーティン」</h3>
+            <p class="desc">「ローラーで滑らせるだけ」の使い方を、テレビを見ながらできる3分のルーティンとして見せた商品訴求の動画です。</p>
+            <dl class="facts"><dt>ROLE</dt><dd>構成・制作・効果分析</dd></dl>
+            <p class="spec">9:16 · 15秒 · 2026.04.30 投稿</p>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="device"><div class="screen"><video controls playsinline preload="none" poster="v/client-lip.jpg" src="v/client-lip.mp4" aria-label="リップの動画"></video></div></div>
+          <div class="meta">
+            <div class="kicker"><span class="chip brand">化粧品ブランド</span><span class="chip">TikTok</span></div>
+            <div class="big"><b>81.5万</b><span>再生</span></div>
+            <h3>リップ「朝夜 2WAY メイク」</h3>
+            <p class="desc">ブランドのガイドラインと既存のトンマナに合わせて、構成・配色・テロップの表現をそろえて制作しました。</p>
+            <dl class="facts"><dt>ROLE</dt><dd>撮影・編集</dd></dl>
+            <p class="spec">9:16 · 41秒 · 2025.11</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section aria-labelledby="h-ai">
+      <div class="sec-head">
+        <div><p class="mono">Self-produced / Generative AI</p><h2 id="h-ai">生成AIの自主制作</h2></div>
+        <p>AIアイドル「クロネコノイズ」を企画し、TikTok Shop のアフィリエイト動画と MV を作っています。撮影はしていません。</p>
+      </div>
+      <div class="cases">
+
+        <article class="case flip">
+          <div class="device"><div class="screen"><video controls playsinline preload="none" poster="v/niko-liptattoo.jpg" src="v/niko-liptattoo.mp4" aria-label="黒いリップをはがすと赤が出る動画"></video></div></div>
+          <div class="meta">
+            <div class="kicker"><span class="chip ai">AI生成</span><span class="chip">自主制作</span><span class="chip">TikTok Shop</span></div>
+            <div class="big"><b class="split">80.5万</b><span>再生 · いいね 5,821</span></div>
+            <h3>黒いのをはがすと赤が出るリップ</h3>
+            <p class="desc">実写のように見える UGC 風の商品動画を、生成AIだけで作りました。同じアカウントの他の投稿は、再生数の中央値が約940回（2026年9月時点）です。</p>
+            <dl class="facts"><dt>ROLE</dt><dd>商品選定・構成・生成・編集・投稿</dd><dt>TOOLS</dt><dd>画像・動画生成AI / Claude Code</dd></dl>
+            <p class="spec">9:16 · 15秒 · 2026.09 投稿 · 再生数は 2026.11.16 取得</p>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="device"><div class="screen"><video controls playsinline preload="none" poster="v/yoru-liptattoo.jpg" src="v/yoru-liptattoo.mp4" aria-label="新色と別キャラクターで作った横展開の動画"></video></div></div>
+          <div class="meta">
+            <div class="kicker"><span class="chip ai">AI生成</span><span class="chip">自主制作</span><span class="chip">横展開</span></div>
+            <h3 style="font-size:28px">伸びた型を、新色と<br>別キャラクターで展開</h3>
+            <p class="desc">80.5万回再生の1本を分析し、「はがす前と後を最後まで見せる」構成を型にしました。新色・別メンバーで作り直し、同じ型で本数を増やしています。</p>
+            <dl class="facts"><dt>ROLE</dt><dd>分析・構成・生成・編集</dd><dt>TOOLS</dt><dd>画像・動画生成AI / Claude Code</dd></dl>
+            <p class="spec">9:16 · 20秒 · 2026.10</p>
+          </div>
+        </article>
+
+        <article class="cinema">
+          <div class="frame"><video controls playsinline preload="none" poster="v/mv-oide.jpg" src="v/mv-oide.mp4" aria-label="クロネコノイズ「おいで」MV"></video></div>
+          <div class="row">
+            <div class="meta">
+              <div class="kicker"><span class="chip ai">AI生成</span><span class="chip">MV</span></div>
+              <h3 style="font-size:28px">クロネコノイズ「おいで」</h3>
+              <p class="spec" style="border:0;padding:0">16:9 · 2分40秒 · 116カット · 2026.08</p>
+            </div>
+            <div class="meta">
+              <p class="desc">3人組のAIアイドルの楽曲 MV です。キャラクター設計から楽曲、映像まで生成AIで作りました。116カットをすべて別の素材で作り、歌詞に合わせてカットを割っています。</p>
+              <dl class="facts"><dt>ROLE</dt><dd>企画・キャラクター設計・楽曲・映像生成・編集</dd><dt>TOOLS</dt><dd>画像・動画・音楽の生成AI / Claude Code</dd></dl>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section aria-labelledby="h-flow">
+      <div class="sec-head">
+        <div><p class="mono">Process</p><h2 id="h-flow">制作の流れ</h2></div>
+        <p>生成AIの動画は、この順番で作っています。作る工程の前後に、確かめる工程を必ず入れています。</p>
+      </div>
+      <div class="timeline">
+        <div class="ruler" aria-hidden="true"><span></span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span></div>
+        <div class="lane check">
+          <div class="name">A1<b>確かめる</b></div>
+          <div class="clip c1"><h3>参考を分析</h3><p>伸びている投稿を1秒ずつ見て、構成表にしてから台本に入ります。</p></div>
+          <div class="clip c2"><h3>商品を理解</h3><p>部品・使い方・注意書きを確認し、実物と合う使い方で見せます。</p></div>
+          <div class="clip c6"><h3>検品</h3><p>薬機法の NG 表現を辞書で機械チェック。語りは文字起こしで原稿と照合し、全カットを目で確認します。</p></div>
+          <div class="clip c7"><h3>投稿後の分析</h3><p>再生数・売上・コメントを集め、伸びた理由を次の型にします。</p></div>
+        </div>
+        <div class="lane make">
+          <div class="name">V1<b>つくる</b></div>
+          <div class="clip c3"><h3>構成と台本</h3><p>つかみと見せ場の順番を決め、テロップと台詞を書きます。</p></div>
+          <div class="clip c4"><h3>生成</h3><p>画像を作ってから動画に。顔と服がそろうよう元の絵を固定します。</p></div>
+          <div class="clip c5"><h3>編集・組み立て</h3><p>声・テロップ・音を組みます。組み立てと書き出しは Claude Code で自動化。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-skill">
+      <div class="sec-head">
+        <div><p class="mono">Skills</p><h2 id="h-skill">できること</h2></div>
+      </div>
+      <div class="skills">
+        <div class="panel">
+          <h3>お受けできる作業</h3>
+          <ul>
+            <li>縦型ショート動画の構成・編集（TikTok / Instagram リール / YouTube ショート）</li>
+            <li>生成AIでの商品動画・UGC 風動画（撮影なし）</li>
+            <li>AIキャラクターの設計と、シリーズでの動画制作</li>
+            <li>MV・ダンス動画の映像生成と編集</li>
+            <li>美容・家電の表現チェック（薬機法の NG 表現）</li>
+            <li>投稿の効果分析（再生・売上・視聴維持）</li>
+            <li>Claude Code を使った制作工程の自動化</li>
+          </ul>
+          <p class="other">ほかの担当実績: 化粧品ブランドの TikTok 構成案、ライブ配信の切り抜き</p>
+        </div>
+        <div class="panel">
+          <h3>使っているツール</h3>
+          <dl class="tools">
+            <dt>EDIT</dt><dd>CapCut / Adobe Premiere Pro</dd>
+            <dt>DESIGN</dt><dd>Adobe Illustrator / Photoshop</dd>
+            <dt>GEN AI</dt><dd>Higgsfield / Seedance / Kling / TopView AI</dd>
+            <dt>SOUND</dt><dd>Logic Pro / AivisSpeech</dd>
+            <dt>AUTOMATE</dt><dd>Claude Code / ffmpeg</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      再生数は TikTok の公開値です。美容家電ブランドと自主制作は 2026年11月16日に取得、化粧品ブランドは 2026年1月時点の記録です。<br>
+      美容家電ブランドの売上は TikTok Shop の集計（2026年5月時点）で、広告経由の売上を含みます。
+    </footer>
+
+  </div>
+</main>
+
+<script>
+  (function () {
+    var track = document.getElementById('track');
+    if (track) {
+      Array.prototype.slice.call(track.children).forEach(function (t) {
+        var c = t.cloneNode(true); c.setAttribute('aria-hidden', 'true'); track.appendChild(c);
+      });
+      track.querySelectorAll('video').forEach(function (v) { v.muted = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+    }
+    var full = document.querySelectorAll('main video');
+    full.forEach(function (v) {
+      v.addEventListener('play', function () { full.forEach(function (o) { if (o !== v) o.pause(); }); });
+    });
+  })();
+</script>
+</body>
+</html>
